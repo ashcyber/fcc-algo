@@ -1,0 +1,20 @@
+const log = console.log; 
+
+function destroyer(arr, ...arr2) {
+  let arrCp = [...arr]; 
+  
+  arr2.forEach((val) => {
+    for(let i in arrCp){
+      if(arrCp[i] == val) arrCp[i] = 'X_X'; 
+    }
+  }); 
+
+  return arrCp.filter((val) => val !== 'X_X');
+}
+
+
+
+
+(function(){
+  log(destroyer([1, 2, 3, 1, 2, 3], 2, 3)); 
+})(); 
