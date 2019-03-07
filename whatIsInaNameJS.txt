@@ -1,0 +1,26 @@
+function whatIsInAName(collection, source) {
+  // What's in a name?
+  var arr = [];
+  // Only change code below this line
+  let source_keys = Object.keys(source); 
+
+  collection.forEach((val) => {
+    let keyMatch = true; 
+    source_keys.forEach((source_val) => {
+      if(source[source_val] !== val[source_val]){
+        keyMatch = false; 
+      }
+    }); 
+
+    if(keyMatch === true)
+      arr.push(val); 
+  }); 
+  
+  // Only change code above this line
+  return arr;
+}
+
+
+(function(){
+  console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "bat": 2 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "bat": 2 })); 
+})(); 
