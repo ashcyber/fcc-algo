@@ -1,0 +1,30 @@
+function splitOnCap(str){
+  let arr = []; 
+  let temp = "";
+
+  for(var i=0; i < str.length; i++){
+    if(i > 0){
+      if(str[i] === str[i].toUpperCase()){
+        arr.push(temp); 
+        arr.push(' '); 
+        temp = '';
+      }
+    }
+    temp+= str[i]; 
+  }
+  arr.push(temp);
+
+  return arr.join('').trimRight();     
+}
+
+function spinalCase(str) {
+  // "It's such a fine line between stupid, and clever."
+  // --David St. Hubbins
+  return splitOnCap(str).split(/[\W_]+/).join('-').toLowerCase();
+}
+
+
+(function(){
+  console.log(spinalCase('The_Andy_Griffith_Show'));
+})(); 
+
