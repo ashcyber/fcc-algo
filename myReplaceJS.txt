@@ -1,0 +1,22 @@
+function myReplace(str, before, after) {
+  let str_arr = str.split(' ');
+
+  for(let i = 0; i < str_arr.length; i++){
+    if(str_arr[i] === before){
+      if(before[0].toUpperCase() == before[0]){
+        str_arr[i] =  after[0].toUpperCase() + after.substr(1,after.length)
+      }else{
+        str_arr[i] = after; 
+      }
+    }
+  } 
+
+
+  return str_arr.join(' '); 
+
+}
+
+
+(function(){
+  myReplace("His name is Tom", "Tom", "john");
+})(); 
