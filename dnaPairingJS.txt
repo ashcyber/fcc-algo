@@ -1,0 +1,19 @@
+var pairDict = {
+  'G'  : 'C', 
+  'C'  : 'G', 
+  'A'  : 'T', 
+  'T'  : 'A'
+}
+
+function pairElement(str) {
+  let res_arr = []; 
+
+  for(let i in str){ res_arr.push([ str[i], pairDict[str[i]] ]) }; 
+
+  return res_arr;
+}
+
+
+(function(){
+  console.log(pairElement("ATCGA")); 
+})(); 
