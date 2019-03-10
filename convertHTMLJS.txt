@@ -1,0 +1,22 @@
+const log = console.log; 
+
+var convDict = {
+  "&"  : "&amp;", 
+  "<"  : "&lt;", 
+  ">"  : "&gt;", 
+  "\"" : "&quot;", 
+  "\'" : "&apos;", 
+}
+
+function convertHTML(str) {
+  // &colon;&rpar;
+  let str_arr = str.split('');
+  str_arr = str_arr.map((val) => {
+    if(convDict.hasOwnProperty(val))
+      return val = convDict[val]; 
+    return val; 
+  }); 
+
+
+  return str_arr.join(''); 
+}
