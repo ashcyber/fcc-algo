@@ -1,0 +1,21 @@
+const log = console.log; 
+function uniteUnique(...arr) {
+
+  let arr_set = new Set(); 
+
+  arr.forEach((val)=>{
+    val.forEach((val_in) => {
+      arr_set.add(val_in);
+    }); 
+  })
+
+  let arr_emp = []; 
+
+  for(let item of arr_set) { arr_emp.push(item); }
+  return arr_emp;
+}
+
+
+(function(){
+ log(uniteUnique([1, 3, 2], [1, [5]], [2, [4]])); 
+})(); 
