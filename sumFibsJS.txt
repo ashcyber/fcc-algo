@@ -1,0 +1,29 @@
+const log = console.log; 
+
+function findFibs(num){
+  let a = 1, b = 1;
+  let c = a + b; 
+  let arr = [a,b]; 
+
+  while(c <= num){
+    arr.push(c); 
+    a = b; 
+    b = c; 
+    c = a + b; 
+    
+  }
+  return arr.filter((val) => val%2 === 1); 
+}
+
+function sumFibs(num) {
+  if(num == 1){
+    return 1; 
+  }else{
+    return findFibs(num).reduce((a,b)=>a+b);
+  }
+}
+
+
+log(sumFibs(4000000));
+
+

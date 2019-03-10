@@ -1,0 +1,27 @@
+
+function smallestCommons(arr) {
+  let max_val = Math.max(...arr); 
+  let min_val = Math.min(...arr); 
+
+  let num = max_val; 
+  let isDivisive = false; 
+  while(isDivisive === false){
+    for(var i = min_val; i <= max_val; i++){
+      if(num % i !== 0){
+        num += max_val; 
+        break; 
+      }
+    }
+
+    if(i > max_val){
+      isDivisive == true; 
+      return num; 
+    }
+  }
+}
+
+
+console.log(smallestCommons([23, 18]));
+
+
+
