@@ -1,14 +1,23 @@
-function dropElements(arr, func) {
-  // Drop them elements.
-
-  for(let i = 0; i < arr.length; i++){
-    if(func(arr[i]) === true){
-      return arr.slice(i,arr.length);
+function steamrollArray(arr) {
+  // I'm a steamroller, baby
+  var arr_g = []; 
+  var extractElem = function(arr_rec){
+    if(Array.isArray(arr_rec)){
+      for(let i in arr_rec){ 
+        extractElem(arr_rec[i]); 
+      }
+    }else{
+      arr_g.push(arr_rec);  
     }
   }
 
-  return []; 
 
+  for(let i in arr){
+    extractElem(arr[i]); 
+  }
+
+  return arr_g; 
+ 
 }
 
 console.log(dropElements([1, 2, 3, 4], function(n) {return n > 5;}));
