@@ -1,0 +1,24 @@
+
+function palindrome(str) {
+  // Good luck!
+  var isAlphaNumeric = function(s){
+    return /^[0-9a-zA-Z]$/.test(s); 
+  }
+  var filter_arr = []; 
+  for(let i in str){
+    if(isAlphaNumeric(str[i]))
+      filter_arr.push(str[i].toLowerCase()); 
+  }
+  
+  var rev_arr = [...filter_arr].reverse(); 
+
+  if(rev_arr.join('') === filter_arr.join('')){
+    return true; 
+  }else{
+    return false; 
+  }
+}
+
+
+
+console.log(palindrome("My age is 0, 0 si ega ym."));
