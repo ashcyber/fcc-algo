@@ -1,0 +1,30 @@
+function rot13(str) { // LBH QVQ VG!
+
+  let res_arr = []; 
+
+  var isAlpha = function(s){
+    return /^[a-zA-Z]$/.test(s); 
+  }
+
+  var toChar  = function(val){
+    return String.fromCharCode(val); 
+  }; 
+
+  var getCode = function(val){
+    return val.charCodeAt(0); 
+  }
+
+  str.split('').forEach((val) => {
+    
+    if(isAlpha(val)){
+      let char_code = getCode('A') + ((getCode(val)-getCode('A') + 13) % 26);
+      res_arr.push(toChar(char_code)); 
+    }else{
+      res_arr.push(val); 
+    }
+  });   
+  return res_arr.join('');
+}
+
+// Change the inputs below to test
+console.log(rot13("GUR DHVPX OEBJA SBK WHZCF BIRE GUR YNML QBT."));
